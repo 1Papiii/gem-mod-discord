@@ -6,6 +6,7 @@ A Discord webhook that uses Google Gemini to moderate your server.
 * Discord Developer account
 * Google GenAI SDK
 * Python 3.5+
+* A server (for running the script)
 
 # How it works
 uhhhhhhhhh
