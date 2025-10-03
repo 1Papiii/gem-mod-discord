@@ -15,6 +15,8 @@ while True: # This MAGNIFICENT while loop "dynamically selects an API key to avo
     refresh += 1
     print(api_key) # The print statements were for debugging but I decided to leave them in here. You're welcome.
     print(refresh)
+    if refresh == 250:
+        continue
 
 #Bot setup type shiiii
 #This bot doesn't use any command prefixes due to technical limitations with the GenAI SDK (aka imma do it later)
