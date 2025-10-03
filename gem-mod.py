@@ -13,15 +13,19 @@ api_key = random(keys)
 # This bot doesn't use any command prefixes due to technical limitations with the GenAI SDK
 intents = discord.Intents.default()
 intents.message_content = True
+client = discord.Client(intents=intents)
 bot = commands.Bot(intents=intents)
 
-# Honestly idk what any of this does
-# I think it just collects a message and blah blah blah all that shit
-# Blame dev.to for the horrid code :(
+#Honestly idk what any of this does
+#I think it just collects a message and blah blah blah all that shit
+#Blame dev.to for the horrid code :(
 @bot.event
 async def on_message(message):
-    await bot.process_commands(message)
-    print(message.content)
+    if message.author == client:
+        return
+    else:
+        await bot.process_commands(message)
+        print(message.content)
 
 # The blank space is your token
 # NEVER leave your token out kids
