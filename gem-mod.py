@@ -7,17 +7,17 @@ import discord
 import random
 
 api_key = 0
-refresh = 0 # This is for the randomization type shit
-keys = ["key", "key", "key", "key", "key", ""]
-for i in range(250):
-    time.sleep(5)
-    refresh + 1
-    if refresh == 250:
-        api_key = random(keys)
-
+refresh = 0 # This is for the randomization type shit.
+keys = ["", "", "", "", "", ""]
+while True: # This MAGNIFICENT while loop "dynamically selects an API key to avoid rate limits. Basically, wtf does any of this mean???? Explanation in Readme.
+    api_key = random.choice(keys)
+    time.sleep(10)
+    refresh += 1
+    print(api_key) # The print statements were for debugging but I decided to leave them in here. You're welcome.
+    print(refresh)
 
 #Bot setup type shiiii
-#This bot doesn't use any command prefixes due to technical limitations with the GenAI SDK
+#This bot doesn't use any command prefixes due to technical limitations with the GenAI SDK (aka imma do it later)
 intents = discord.Intents.default()
 intents.message_content = True
 gem_client = genai.Client()
