@@ -23,7 +23,7 @@ bot = commands.Bot(intents=intents)
 async def on_message(message):
     if message.author == client:
         return
-    elif message.author == "blank":
+    elif message.author == "blank": # left blank in case you want to implement "rules for thee, not for me" in your server
         return
     else:
         await bot.process_commands(message)
