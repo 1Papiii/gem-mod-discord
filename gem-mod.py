@@ -12,7 +12,7 @@ keys = ["key", "key", "key", "key", "key", ""]
 for i in range(250):
     time.sleep(5)
     refresh + 1
-    if refresh = 250:
+    if refresh == 250:
         api_key = random(keys)
 
 
