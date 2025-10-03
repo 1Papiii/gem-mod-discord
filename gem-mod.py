@@ -23,7 +23,7 @@ bot = commands.Bot(intents=intents)
 async def on_message(message):
     if message.author == client:
         return
-    elif message.author == 1264014388021559491:
+    elif message.author == "blank":
         return
     else:
         await bot.process_commands(message)
