@@ -6,8 +6,16 @@ import time
 import discord
 import random
 
-keys = ["", "", "", "", "", ""]
-api_key = random(keys)
+api_key = 0
+refresh = 0 # This is for the randomization type shit
+keys = ["key", "key", "key", "key", "key", ""]
+for i in range(250):
+    time.sleep(5)
+    refresh + 1
+    if refresh = 250:
+        api_key = random(keys)
+
+
 #Bot setup type shiiii
 #This bot doesn't use any command prefixes due to technical limitations with the GenAI SDK
 intents = discord.Intents.default()
@@ -23,7 +31,7 @@ bot = commands.Bot(intents=intents)
 async def on_message(message):
     if message.author == client:
         return
-    elif message.author == "blank": # left blank in case you want to implement "rules for thee, not for me" in your server
+    elif message.author == YOUR_USER_ID:
         return
     else:
         await bot.process_commands(message)
@@ -35,7 +43,7 @@ async def on_message(message):
             ),
             contents=message.content
         )
-        
+
         print(response.text)
 
-bot.run('')
+bot.run('BOT_TOKEN_HERE')
