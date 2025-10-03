@@ -31,11 +31,15 @@ async def on_message(message):
         response = gem_client.models.generate_content(
             model="gemini-2.5-flash",
             config=types.GenerateContentConfig(
-                system_instruction="You, as an AI and moderator of a school Discord server, are to classify each message sent as `NEGATIVE`, `POSITIVE`. `NEGATIVE` content includes words such as 'slime', 'fuh', 'goon' and any other derogatory/offensive slang."
+                system_instruction="You, as an AI and moderator of a school Discord server, are to classify each message sent as NEGATIVE, POSITIVE. NEGATIVE content includes words such as 'slime', 'fuh', 'goon' and any other derogatory/offensive slang. However, simple swear words such as 'fuck' or 'shit' are allowed by technicality. Those words are POSITIVE in this case and should not be marked as NEGATIVE."
             ),
             contents=message.content
         )
 
         print(response.text)
+        if response.text == "NEGATIVE":
+            await message.delete()
+        elif response.text == "POSITIVE":
+            return
 
 bot.run('BOT_TOKEN_HERE')
