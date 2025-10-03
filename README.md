@@ -6,7 +6,7 @@ A Discord bot that uses Google Gemini to moderate your server.
 * [Discord Developer account](https://discord.com/developers/applications)
 * [Google GenAI SDK](https://pypi.org/project/google-genai/)
 * [Python 3.5+](https://python.org)
-* A server (for running the script) The server I am running this implementation is a Hackintosh, but it can realistically be anything with Python on it.
+* A server. The server I am running this implementation is a Hackintosh, but it can realistically be anything, so long as it has Python and Wi-Fi.
 
 # How it works
 Messages are routed from Discord to Google Gemini. Gemini classifies those messages and takes action accordingly. Simple, right?
