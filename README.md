@@ -1,5 +1,5 @@
 # gem-mod-discord
-A Discord webhook that uses Google Gemini to moderate your server.
+A Discord bot that uses Google Gemini to moderate your server.
 
 # Requirements
 * [Discord.py SDK](https://pypi.org/project/discord.py/)
