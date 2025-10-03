@@ -9,12 +9,20 @@ import random
 keys = ["", "", "", "", "", "", "", "", "", ""]
 api_key = random(keys)
 
-# Initialize client and chat ONLY if an API key is available
-try:
-    client = genai.Client(api_key=api_key)
-    chat = client.chats.create(model="gemini-2.5-flash")
-except Exception as e:
-    print(f"Failed to initialize Gemini client or chat: {e}")
-    print("Please check your API key and try again. Exiting.")
-    time.sleep(1)
-    exit()
+# Bot setup type shiiii
+# This bot doesn't use any command prefixes due to technical limitations with the GenAI SDK
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(intents=intents)
+
+# Honestly idk what any of this does
+# I think it just collects a message and blah blah blah all that shit
+# Blame dev.to for the horrid code :(
+@bot.event
+async def on_message(message):
+    await bot.process_commands(message)
+    print(message.content)
+
+# The blank space is your token
+# NEVER leave your token out kids
+bot.run('')
