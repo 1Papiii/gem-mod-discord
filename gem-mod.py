@@ -15,14 +15,13 @@ print(api_key)
 
 
 # Bot setup type shiiii
-# This bot doesn't use any command prefixes due to technical limitations with the GenAI SDK
 intents = discord.Intents.default()
 intents.message_content = True
 gem_client = genai.Client(api_key=api_key)
 client = discord.Client(intents=intents)
 bot = commands.Bot(command_prefix="/", intents=intents)
 
-def prefix_fix(bot, message): # This is to fix a MASSIVE bug on macOS that led to me almost bricking my system
+def prefix_fix(bot, message): # This is to fix a MASSIVE bug on macOS that led to me almost bricking my system (don't ask how)
     if message.channel.id != 1:
         return ""
     else:
