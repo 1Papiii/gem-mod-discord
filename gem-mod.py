@@ -48,10 +48,10 @@ async def on_message(message):
             contents=message.content
             )
 
-    print(response.text)
-    if response.text == "NEGATIVE":
-        await message.delete()
-        await message.channel.send("Message deleted. Inappropriate content detected.")
+        print(response.text)
+        if response.text == "NEGATIVE":
+            await message.delete()
+            await message.channel.send("Message deleted. Inappropriate content detected.")
     elif response.text == "POSITIVE":
         return
 
