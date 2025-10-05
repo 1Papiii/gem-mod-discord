@@ -23,7 +23,7 @@ bot = commands.Bot(intents=intents)
 #Blame dev.to for the horrid code :(
 @bot.event
 async def on_message(message):
-    if message.author == client:
+    if message.author == client.user:
         return
     else:
         await bot.process_commands(message)
