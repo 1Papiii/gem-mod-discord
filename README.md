@@ -1,5 +1,5 @@
 # gem-mod-discord
-A Discord bot that uses Google Gemini to moderate your server.
+A Discord bot that uses Google Gemini to moderate your server. It can also (theoretically) chat, but that's for a later date.
 
 # Requirements
 * [Discord.py SDK](https://pypi.org/project/discord.py/)
