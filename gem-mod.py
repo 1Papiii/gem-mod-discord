@@ -6,17 +6,28 @@ import time
 import discord
 import random
 
-api_key = 0
-refresh = 0 # This is for the randomization type shit.
-keys = ["", "", "", "", "", ""]
 
-#Bot setup type shiiii
-#This bot doesn't use any command prefixes due to technical limitations with the GenAI SDK (aka imma do it later)
+api_key = 0
+keys = ["", ""]
+
+api_key = random.choice(keys)
+print(api_key)
+
+
+# Bot setup type shiiii
+# This bot doesn't use any command prefixes due to technical limitations with the GenAI SDK
 intents = discord.Intents.default()
 intents.message_content = True
-gem_client = genai.Client()
+gem_client = genai.Client(api_key=api_key)
 client = discord.Client(intents=intents)
-bot = commands.Bot(intents=intents)
+bot = commands.Bot(command_prefix="/", intents=intents)
+
+def prefix_fix(bot, message): # This is to fix a MASSIVE bug on macOS that led to me almost bricking my system
+    if message.channel.id != 1:
+        return ""
+    else:
+        return "nuh uh"
+
 
 # Honestly idk what any of this does
 # I think it just collects a message and blah blah blah all that shit
@@ -37,8 +48,8 @@ async def on_message(message):
             contents=message.content
             )
 
-        print(response.text)
-        if response.text == "NEGATIVE":
+    print(response.text)
+    if response.text == "NEGATIVE":
         await message.delete()
         await message.channel.send("Message deleted. Inappropriate content detected.")
     elif response.text == "POSITIVE":
