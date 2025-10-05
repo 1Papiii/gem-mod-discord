@@ -1,16 +1,9 @@
 from google import genai
 from google.genai import types
 from discord.ext import commands
-from discord.ext.commands import Bot
-import time
 import discord
-import random
 
-
-api_key = 0
-keys = ["", ""]
-
-api_key = random.choice(keys)
+api_key = ""
 print(api_key)
 
 
